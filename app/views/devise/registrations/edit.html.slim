@@ -1,0 +1,46 @@
+.medium-4
+  h2 = "Edit #{resource_name.to_s.humanize}"
+
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: puts }) do |f|
+    = devise_error_messages!
+
+    .field
+      = f.input :email, autofocus: true, as: :email
+
+    .field
+      = f.input :name, autofocus: true
+
+
+    .field
+      = f.input :surname, autofocus: true
+
+    .field
+      = f.input :date_of_birth, autofocus: true, as: :date, start_year: Date.today.year - 60, end_year: Date.today.year - 10
+
+
+
+    -if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      Currently waiting confirmation for: = resource.unconfirmed_email
+
+    .field
+      = f.input :password, autocomplete: "off", as: :password
+      - if @minimum_password_length
+        br
+        em = "#{@minimum_password_length}  characters minimum"
+
+
+    .field
+      = f.input :password_confirmation, autocomplete: "off", as: :password
+
+    .field
+      = f.input :current_password, autocomplete: "off", as: :password
+
+    .actions
+      = f.submit "Update", class:"success button"
+
+  h3 Cancel my account
+
+  span Unhappy?
+  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"alert button"
+
+  = link_to "Back", :back
