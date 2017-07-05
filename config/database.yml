@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  username: ihowardos
+  password: ihowardos
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: fs-blog_dev
+
+
+test:
+  <<: *default
+  database: fs-blog_test
+
+production:
+  <<: *default
+  database: fs-blog_prod
