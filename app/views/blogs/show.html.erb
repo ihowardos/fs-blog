@@ -1,19 +1,14 @@
-<p id="notice"><%= notice %></p>
+p
+  #notice
+    = notice
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+p
+  strong Title:
+  = blog.title
 
-<p>
-  <strong>Text:</strong>
-  <%= @blog.text %>
-</p>
+p
+  strong Text:
+  = blog.text %>
 
-<p>
-  <strong>User:</strong>
-  <%= @blog.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+= link_to 'Edit', edit_blog_path(blog) |
+= link_to 'Back', blogs_path
