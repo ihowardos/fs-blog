@@ -10,6 +10,10 @@ p
   strong Text:
   = blog.text
 
-= link_to 'Edit', edit_blog_path(blog)
-'   |
+- if (user_signed_in? && current_user == blog.user)
+  = link_to 'Edit', edit_blog_path(blog)
+  '   |
 = link_to 'Back', blogs_path
+
+
+

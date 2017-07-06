@@ -39,11 +39,11 @@ class UsersControllers::RegistrationsController < Devise::RegistrationsControlle
   # protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :username, :date_of_birth])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :surname, :date_of_birth])
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username, :date_of_birth])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :surname, :date_of_birth])
   end
 
   # The path used after sign up.
