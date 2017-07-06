@@ -1,0 +1,33 @@
+.medium-4
+  h2 Sign up
+
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    .field
+      = f.input :email, autofocus: true, as: :email
+
+    .field
+      = f.input :name
+
+    .field
+      = f.input :surname
+
+    .field
+      = f.input :date_of_birth, as: :date, start_year: Date.today.year - 60, end_year: Date.today.year - 10
+
+
+    .field
+      - if @minimum_password_length
+        em = "#{@minimum_password_length} characters minimum"
+        br
+      = f.input :password, autocomplete: "off", as: :password
+
+
+    .field
+      = f.input :password_confirmation, autocomplete: "off", as: :password
+
+    .actions
+      = f.submit "Sign up", class:"success button"
+
+  = render "devise/shared/links"
