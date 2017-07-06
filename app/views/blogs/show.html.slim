@@ -1,0 +1,19 @@
+p
+  #notice
+    = notice
+
+p
+  strong Title:
+  = blog.title
+
+p
+  strong Text:
+  = blog.text
+
+- if (user_signed_in? && current_user == blog.user)
+  = link_to 'Edit', edit_blog_path(blog)
+  '   |
+= link_to 'Back', blogs_path
+
+
+
