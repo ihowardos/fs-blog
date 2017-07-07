@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require foundation
-
-$(function(){ $(document).foundation(); });
+//= require froala_editor.min.js
+//= require foundation
+//= require_tree .

@@ -16,6 +16,7 @@ gem 'draper'
 gem 'decent_decoration', '~> 0.1.0'
 gem 'devise'
 gem 'simple_form'
+gem "wysiwyg-rails"
 
 group :development, :test do
   gem "capybara"
