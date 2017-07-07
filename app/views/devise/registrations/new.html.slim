@@ -27,6 +27,9 @@
     .field
       = f.input :password_confirmation, autocomplete: "off", as: :password
 
+    .field
+      = f.input :photo, as: :file
+
     .actions
       = f.submit "Sign up", class:"success button"
 

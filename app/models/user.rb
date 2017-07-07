@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :blogs
 
+  mount_uploader :photo, PhotoUploader
 end
