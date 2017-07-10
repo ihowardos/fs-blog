@@ -15,7 +15,7 @@
         hr
         span
           .photo
-            = image_tag 'https://pp.userapi.com/c638821/v638821524/45c1a/Ibpx3-RL16U.jpg'
+            = image_tag user.photo_url(:thumb).to_s
         br
         span
           .info
@@ -39,3 +39,7 @@
             = user.created_at_h
             br
             = link_to "See all blogs this user", user_blogs_path(user)
+
+
+
+
