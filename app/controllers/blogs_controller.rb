@@ -35,6 +35,8 @@ class BlogsController < ApplicationController
   private
     def fetch_blogs
       blogs = Blog.all
+      blogs = Blog.where(user_id: params[:user_id]).order(:created_at) if params[:user_id]
+      blogs
     end
 
     def blog_params

@@ -1,18 +1,21 @@
-.medium-4
-  h2 Log in
+- content_for :title, "Sign in"
 
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      = f.input :email, autofocus: true, as: :email
+.medium-4.medium-centered.column style="padding-top: 8%;"
+  .callout
+    h2 Log in
 
-    .field
-      = f.input :password, autocomplete: "off", as: :password
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.input :email, autofocus: true, as: :email
 
-      - if devise_mapping.rememberable?
-        .field
-          = f.input :remember_me, as: :boolean
+      .field
+        = f.input :password, autocomplete: "off", as: :password
 
-      .actions
-        = f.submit "Log in", class:"success button"
+        - if devise_mapping.rememberable?
+          .field
+            = f.input :remember_me, as: :boolean
 
-    = render "devise/shared/links"
+        .actions
+          = f.submit "Log in", class:"success button"
+
+      = render "devise/shared/links"

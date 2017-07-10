@@ -1,0 +1,41 @@
+- content_for :title, "#{user.get_username}"
+
+.medium-4.medium-centered.column
+  .profile
+    .callout
+      .medium-10.medium-centered.column
+        .username.float-left
+          h5
+            |
+            = user.get_username
+            '
+            span#id = "(@id#{user.id})"
+        .float-right
+          = link_to "edit", edit_user_registration_path if user_signed_in? && current_user == user
+        hr
+        span
+          .photo
+            = image_tag 'https://pp.userapi.com/c638821/v638821524/45c1a/Ibpx3-RL16U.jpg'
+        br
+        span
+          .info
+            |
+            strong  Email:
+            '
+            = user.email
+            br
+            |
+            strong Age:
+            '
+            = "#{user.age(user.date_of_birth)} years old"
+            br
+            |
+            strong Blogs count:
+            '
+            = user.blogs_count(user.id)
+            br
+            strong Registrated at:
+            '
+            = user.created_at_h
+            br
+            = link_to "See all blogs this user", user_blogs_path(user)

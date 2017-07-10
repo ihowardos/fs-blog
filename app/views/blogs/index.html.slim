@@ -1,26 +1,25 @@
+- content_for :title, "Blogs"
 p
   #notice
     = notice
-
-h1 Blogs
-
-table
-  thead
-    tr
-      th Title
-      th width="50" Text
-      th Author
-      th colspan="3"
-
-  tbody
-    - blogs.each do |blog|
-      tr
-        td = link_to blog.title, blog_path(blog.id)
-        td width="50" = blog.text
-        td = link_to "#{blog.user.name} #{blog.user.surname}", blogs_path
-        td = link_to 'Show', blog
-        td = link_to 'Edit', edit_blog_path(blog)
-        td = link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if current_user == blog.user
-br
-
-= link_to 'New Blog', new_blog_path
+- if blogs.count == 0
+  .emty-list.medium-12.text-center
+    h4 While there is nothing here
+    span
+      | You can
+      '
+      = link_to "add", new_blog_path
+      '    the your first blog!
+- blogs.each do |blog|
+  .blog
+    .medium-10.medium-centered.column
+      .callout
+        .title
+          .float-left
+            h5 = link_to blog.title, blog_path(blog.id)
+            h6.subheader.author = link_to blog.user.get_username, users_path(blog.user)
+          .float-right
+            = blog.created_at_h
+        br
+        .text style="padding-top: 20px;"
+        = raw blog.text
