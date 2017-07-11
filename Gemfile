@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'wysiwyg-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'pundit'
 
 group :development, :test do
   gem "capybara"
@@ -28,8 +29,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
-  gem "capybara-screenshot"
-  gem "launchy"
+  gem 'capybara-screenshot'
+  gem 'launchy'
 end
 
 group :development do

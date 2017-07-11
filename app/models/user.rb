@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :blogs
 
+  enum role: [:user, :admin, :editor]
+
   mount_uploader :photo, PhotoUploader
 
   def get_username
