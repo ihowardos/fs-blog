@@ -4,7 +4,7 @@
   .callout
     h2 = "Edit #{resource_name.to_s.humanize}"
 
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: puts }) do |f|
+    = simple_form_for(resource, as: resource_name, url: {action: :update, controller: 'users_controllers/registrations'}, method: :put) do |f|
       = devise_error_messages!
 
       .field
@@ -19,6 +19,9 @@
 
       .field
         = f.input :date_of_birth, autofocus: true, as: :date, start_year: Date.today.year - 60, end_year: Date.today.year - 10
+
+      .field
+        = f.input :role, as: :select, collection: User.roles.keys, selected: 0
 
       .field
         = f.input :photo, as: :file

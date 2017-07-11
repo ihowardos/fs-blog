@@ -14,12 +14,12 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    if current_user != blog.user || current_user.nil?
-      redirect_to blog
-    end
+
   end
 
   def update
+    authorize blog
+
     if blog.update(blog_params)
       redirect_to blog, notice: 'Blog was successfully updated.'
     else

@@ -6,7 +6,17 @@ class User < ApplicationRecord
 
   has_many :blogs
 
+  enum role: {
+    user: :user,
+    editor: :editor,
+    admin: :admin
+  }
+
+  #validates :role, inclusion_of: ROLES
+
   mount_uploader :photo, PhotoUploader
+
+  #ROLES = %w(user admin editor)
 
   def get_username
     "#{name} #{surname}"
@@ -19,4 +29,5 @@ class User < ApplicationRecord
   def current_user?(user_id)
     id == user_id
   end
+
 end
