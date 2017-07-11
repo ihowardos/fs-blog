@@ -1,0 +1,17 @@
+- content_for :title, "Blog creating"
+
+.medium-10.medium-centered.column style="padding-top: 5%;"
+    .callout
+        h1 New Blog
+
+        = render 'form', blog: blog
+
+        = link_to 'Back', blogs_path
+
+
+script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"
+script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"
+script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/js/froala_editor.pkgd.min.js"
+
+script $(function() { $('textarea').froalaEditor() });

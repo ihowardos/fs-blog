@@ -1,0 +1,32 @@
+- content_for :title, "#{blog.title}"
+
+p
+  #notice
+    = notice
+
+.medium-10.medium-centered.column
+  .callout
+    .blog
+      .title
+        .float-left
+          h5 = blog.title
+        .float-right
+          = blog.created_at_h
+      hr
+      br
+      p
+        = raw blog.text
+
+      h6.subheader.author.float-right
+        | Author:
+        '
+        = link_to "#{blog.user.get_username} (@id#{blog.user.id})", users_path(blog.user)
+      br
+
+      - if (user_signed_in? && current_user == blog.user)
+        = link_to 'Edit', edit_blog_path(blog), class:"button success"
+        '   |
+      = link_to 'Back', blogs_path, class:"button"
+
+
+

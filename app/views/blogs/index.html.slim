@@ -1,0 +1,25 @@
+- content_for :title, "Blogs"
+p
+  #notice
+    = notice
+- if blogs.count == 0
+  .emty-list.medium-12.text-center
+    h4 While there is nothing here
+    span
+      | You can
+      '
+      = link_to "add", new_blog_path
+      '    the your first blog!
+- blogs.each do |blog|
+  .blog
+    .medium-10.medium-centered.column
+      .callout
+        .title
+          .float-left
+            h5 = link_to blog.title, blog_path(blog.id)
+            h6.subheader.author = link_to blog.user.get_username, users_path(blog.user)
+          .float-right
+            = blog.created_at_h
+        br
+        .text style="padding-top: 20px;"
+        = raw blog.text

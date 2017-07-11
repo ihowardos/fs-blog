@@ -1,0 +1,18 @@
+.top-bar
+  .top-bar-left
+    ul class="dropdown menu" data-dropdown-menu=true
+      li class="menu-text"
+        Site title
+      li = link_to "Home", root_path
+      li = link_to "Create blog", new_blog_path
+  .top-bat-right
+    ul class="menu"
+      - if user_signed_in?
+        li = link_to current_user.get_username, users_path(current_user)
+        li = link_to "Exit", destroy_user_session_path, method: :delete if user_signed_in?
+      - else
+        li
+          = link_to "Sign in", new_user_session_path
+        li
+          = link_to "Sign up", new_user_registration_path
+
