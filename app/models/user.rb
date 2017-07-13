@@ -7,9 +7,9 @@ class User < ApplicationRecord
   has_many :blogs
 
   enum role: {
-    user: :user,
-    editor: :editor,
-    admin: :admin
+    user: 'user',
+    editor: 'editor',
+    admin: 'admin'
   }
 
   #validates :role, inclusion_of: ROLES
