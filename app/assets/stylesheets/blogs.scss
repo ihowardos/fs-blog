@@ -1,3 +1,25 @@
-// Place all the styles related to the Blogs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.blog {
+  padding-top:20px;
+
+  .title {
+  margin: 0px 0px 40px 0px;
+
+  .float-right {
+    font-size: 12px;
+    margin-top: 5px;
+    }
+  }
+
+  .author {
+    font-size:15px;
+    color: #696969;
+
+    a {
+      color: #696969;
+    }
+  }
+}
+
+.emty-list {
+  margin-top: 20%;
+}

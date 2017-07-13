@@ -14,12 +14,12 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    if current_user != blog.user || current_user.nil?
-      redirect_to blog
-    end
+
   end
 
   def update
+    authorize blog
+
     if blog.update(blog_params)
       redirect_to blog, notice: 'Blog was successfully updated.'
     else
@@ -35,6 +35,8 @@ class BlogsController < ApplicationController
   private
     def fetch_blogs
       blogs = Blog.all
+      blogs = Blog.where(user_id: params[:user_id]).order(:created_at) if params[:user_id]
+      blogs
     end
 
     def blog_params

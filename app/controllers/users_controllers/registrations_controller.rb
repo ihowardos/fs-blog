@@ -7,7 +7,6 @@ class UsersControllers::RegistrationsController < Devise::RegistrationsControlle
   #   super
   # end
 
-  # POST /resource
   # def create
   #   super
   # end
@@ -36,14 +35,14 @@ class UsersControllers::RegistrationsController < Devise::RegistrationsControlle
   #   super
   # end
 
-  # protected
+  protected
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :surname, :date_of_birth])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :surname, :date_of_birth, :photo])
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :surname, :date_of_birth])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :surname, :date_of_birth, :photo, :role])
   end
 
   # The path used after sign up.
