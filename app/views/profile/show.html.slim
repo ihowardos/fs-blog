@@ -1,6 +1,6 @@
 - content_for :title, "#{user.get_username}"
 
-.medium-4.medium-centered.column
+.medium-6.medium-centered.column
   .profile
     .callout
       .medium-10.medium-centered.column
@@ -15,7 +15,10 @@
         hr
         span
           .photo
-            = image_tag user.photo_url(:thumb).to_s
+            - if user.photo?
+                = image_tag user.photo.thumb.url
+            - else
+                = image_tag user.photo.default_url
         br
         span
           .info

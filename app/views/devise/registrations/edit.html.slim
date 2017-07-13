@@ -24,6 +24,9 @@
 
       .field
         = f.input :photo, as: :file
+        br
+        - if f.object.photo?
+          = image_tag f.object.photo.thumb.url
 
       -if devise_mapping.confirmable? && resource.pending_reconfirmation?
         Currently waiting confirmation for: = resource.unconfirmed_email
