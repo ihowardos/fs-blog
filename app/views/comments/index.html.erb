@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
+    <% comments.each do |comment| %>
       <tr>
         <td><%= comment.user %></td>
         <td><%= comment.blog %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'New Comment', new_blog_comment_path %>

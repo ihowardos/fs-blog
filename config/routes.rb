@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :blogs do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
   resources :profile, only: [:show]
 
