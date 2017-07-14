@@ -17,7 +17,7 @@ p
         .title
           .float-left
             h5 = link_to blog.title, blog_path(blog.id)
-            h6.subheader.author = link_to blog.user.get_username, users_path(blog.user)
+            h6.subheader.author = link_to blog.user.get_username, profile_path(blog.user)
           .float-right
             = blog.created_at_h
         br

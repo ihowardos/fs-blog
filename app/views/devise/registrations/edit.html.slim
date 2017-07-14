@@ -13,7 +13,6 @@
       .field
         = f.input :name, autofocus: true
 
-
       .field
         = f.input :surname, autofocus: true
 
@@ -21,10 +20,13 @@
         = f.input :date_of_birth, autofocus: true, as: :date, start_year: Date.today.year - 60, end_year: Date.today.year - 10
 
       .field
-        = f.input :role, as: :select, collection: User.roles.keys, selected: 0
+        = f.input :role, as: :select, collection: User.roles.keys, selected: @user.role
 
       .field
         = f.input :photo, as: :file
+        br
+        - if f.object.photo?
+          = image_tag f.object.photo.thumb.url
 
       -if devise_mapping.confirmable? && resource.pending_reconfirmation?
         Currently waiting confirmation for: = resource.unconfirmed_email

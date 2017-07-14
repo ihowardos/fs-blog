@@ -9,7 +9,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fit => [400, 400]
+    process :resize_to_fill => [400, 400]
+  end
+
+  def default_url
+    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
 
 end

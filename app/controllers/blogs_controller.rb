@@ -4,6 +4,10 @@ class BlogsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
+  def new
+    authorize blog
+  end
+
   def create
     blog.user_id = current_user.id
     if blog.save
@@ -14,7 +18,7 @@ class BlogsController < ApplicationController
   end
 
   def edit
-
+    authorize blog
   end
 
   def update
@@ -28,6 +32,8 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+    authorize blog
+
     blog.destroy
     redirect_to blogs_url, notice: 'Blog was successfully destroyed.'
   end
