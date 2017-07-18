@@ -1,5 +1,5 @@
 - if action_name == 'show'
-  - if (user_signed_in? && current_user == blog.user)
+  - if (user_signed_in? && (current_user == blog.user || current_user.admin? || current_user.editor?))
       = link_to 'Edit', edit_blog_path(blog), class:"button tiny success"
       '
       = link_to 'Delete', blog_path(blog), method: :delete, data: {confirm: "Are you sure?"}, class:"button tiny alert"
