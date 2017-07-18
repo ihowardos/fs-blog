@@ -8,6 +8,6 @@
   .body
     = comment.text
   .actions.float-right
-    = link_to 'Delete', blog_comment_path(blog, comment), method: :delete, class:"tiny alert button"
+    = link_to 'Delete', blog_comment_path(blog, comment), method: :delete, class:"tiny alert button" if signed_in? && (current_user == comment.user || current_user.admin? || current_user.editor?)
   .clearfix
 
