@@ -22,6 +22,10 @@
         br
         span
           .info
+            .role
+                - if user.admin? || user.editor?
+                    h5 style="color: red"
+                        = user.role
             |
             strong  Email:
             '

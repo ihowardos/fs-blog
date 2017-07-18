@@ -2,20 +2,16 @@ class CommentsController < ApplicationController
   expose_decorated :comment
   expose_decorated :comments, -> {fetch_comments}
 
+  before_action :authenticate_user!
+
   def create
+    authorize comment
     comment.save
     redirect_to :back
   end
 
-  def update
-    if comment.update(comment_params)
-      redirect_to comment, notice: 'Comment was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
   def destroy
+    authorize comment
     comment.destroy
     redirect_to :back, notice: 'Comment was successfully destroyed.'
   end

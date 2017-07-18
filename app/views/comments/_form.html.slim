@@ -3,8 +3,8 @@
     f.error_notification
 
     .form-inputs
-      = f.association :user, selected: current_user, input_html:{hidden:true}, label:false
-      = f.association :blog, selected: blog, input_html:{hidden:true}, label:false
+      = f.association :user, selected: current_user.id, input_html:{hidden:true}, label:false
+      = f.association :blog, selected: blog.id, input_html:{hidden:true}, label:false
       = f.input :text, as: :text, label:'Your comment', placeholder:'Please, enter your comment here'
 
     .form-actions

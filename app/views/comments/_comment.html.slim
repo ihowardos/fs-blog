@@ -1,13 +1,20 @@
 .comment.callout data-id=comment.id
   .title
     .author.float-left
-      = comment.user.name
+      h5
+        |
+        = link_to comment.user.get_username, profile_path(comment.user)
+        '
+        - if comment.user.admin? || comment.user.editor?
+          span#role style="color:red"
+            = '•'
+
     .created_at_h.float-right
       = comment.created_at
   hr
   .body
     = comment.text
   .actions.float-right
-    = link_to 'Delete', blog_comment_path(blog, comment), method: :delete, class:"tiny alert button"
+    = link_to 'Delete', blog_comment_path(blog, comment), method: :delete, class:"tiny alert button" if signed_in? && (current_user == comment.user || current_user.admin? || current_user.editor?)
   .clearfix
 
