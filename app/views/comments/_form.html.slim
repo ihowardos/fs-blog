@@ -1,0 +1,12 @@
+#comment-form
+  = simple_form_for [blog, comment] do |f|
+    f.error_notification
+
+    .form-inputs
+      = f.association :user, selected: current_user, input_html:{hidden:true}, label:false
+      = f.association :blog, selected: blog, input_html:{hidden:true}, label:false
+      = f.input :text, as: :text, label:'Your comment', placeholder:'Please, enter your comment here'
+
+    .form-actions
+      = f.button :submit, class:"button small button-success"
+    .clearfix

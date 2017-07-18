@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
   expose_decorated :blog
-  expose_decorated :blogs, -> { fetch_blogs }
+  expose_decorated :blogs, -> {fetch_blogs}
+
+  expose_decorated :comment, -> {Comment.new}
 
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
